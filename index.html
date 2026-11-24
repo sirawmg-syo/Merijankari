@@ -1,71 +1,92 @@
 
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meri Jankari</title>
+<title>Meri Jankari - ज्ञान की दुनिया</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#172b4d}
-header{background:#142b50;color:white;text-align:center;padding:28px 12px}
-header h1{margin:0;font-size:30px}
-nav{background:#203e69;padding:15px;text-align:center}
-nav a{color:white;text-decoration:none;margin:8px;font-size:14px}
-.hero{text-align:center;padding:45px 18px;background:white}
-.hero h2{font-size:27px}
-.hero p{color:#66758c;line-height:1.6}
-input{padding:14px;width:90%;max-width:450px;border:1px solid #ccd5e3;border-radius:10px;font-size:16px}
-.container{max-width:850px;margin:auto;padding:25px 16px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
-.card{background:white;padding:22px;border-radius:14px;box-shadow:0 3px 12px #00000010}
-.card h3{color:#2456a0}
-.card p{color:#66758c;line-height:1.6}
-footer{background:#142b50;color:white;text-align:center;padding:22px}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172b4d}
+header{background:#fff;padding:18px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px #0001;position:sticky;top:0}
+.logo{font-size:23px;font-weight:bold;color:#1769e0}
+nav a{color:#334155;text-decoration:none;margin-left:12px;font-size:14px}
+.hero{text-align:center;padding:55px 18px;background:linear-gradient(135deg,#1769e0,#713ee8);color:white}
+.hero h1{font-size:32px;margin:0 0 12px}
+.hero p{line-height:1.6}
+.search{width:100%;max-width:480px;padding:16px;border:0;border-radius:30px;font-size:16px;margin-top:18px}
+.container{max-width:1000px;margin:auto;padding:25px 16px}
+h2{font-size:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:white;padding:23px;border-radius:16px;box-shadow:0 4px 16px #0000000d}
+.card h3{margin-top:0;color:#1769e0}
+.card p{color:#64748b;line-height:1.6}
+footer{text-align:center;background:#172b4d;color:white;padding:25px;margin-top:30px}
+footer a{color:white}
+@media(max-width:500px){
+header{flex-wrap:wrap;gap:12px}
+nav{width:100%;display:flex;justify-content:space-between}
+nav a{margin:0}
+.hero h1{font-size:27px}
+}
 </style>
 </head>
 <body>
 <header>
-<h1>📚 Meri Jankari</h1>
-<p>Har din kuch naya seekhein!</p>
-</header>
+<div class="logo">🌐 Meri Jankari</div>
 <nav>
 <a href="#home">Home</a>
-<a href="#jankari">Jankari</a>
+<a href="#categories">जानकारी</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
+</header>
+
 <section class="hero" id="home">
-<h2>Welcome to Meri Jankari!</h2>
-<p>Yahan aapko nayi aur upyogi jaankari milegi.</p>
-<input id="search" placeholder="Jankari search karein...">
+<h1>आपकी जानकारी, आपकी दुनिया!</h1>
+<p>नई चीजें सीखें और ज्ञान की दुनिया से जुड़ें।</p>
+<input class="search" id="search" placeholder="🔍 जानकारी खोजें..." oninput="searchCards()">
 </section>
-<section class="container" id="jankari">
-<h2>Hamari Jankari</h2>
-<div class="cards">
-<div class="card"><h3>💻 Technology</h3><p>Technology aur digital duniya ke baare mein seekhein.</p></div>
-<div class="card"><h3>🌍 General Knowledge</h3><p>Duniya ki interesting jaankari.</p></div>
-<div class="card"><h3>📱 Mobile Tips</h3><p>Mobile aur internet ki upyogi tips.</p></div>
-<div class="card"><h3>🎓 Education</h3><p>Padhai aur learning ki jaankari.</p></div>
+
+<section class="container" id="categories">
+<h2>📚 जानकारी की दुनिया</h2>
+<div class="cards" id="cards">
+<div class="card"><h3>💻 Technology</h3><p>Technology और डिजिटल दुनिया के बारे में सीखें।</p></div>
+<div class="card"><h3>🌍 General Knowledge</h3><p>दुनिया की रोचक और महत्वपूर्ण जानकारी।</p></div>
+<div class="card"><h3>📱 Mobile Tips</h3><p>मोबाइल और इंटरनेट के उपयोगी टिप्स।</p></div>
+<div class="card"><h3>📖 Education</h3><p>पढ़ाई और नई चीजें सीखने की जानकारी।</p></div>
+<div class="card"><h3>🔬 Science</h3><p>विज्ञान और नई खोजों के बारे में जानें।</p></div>
+<div class="card"><h3>💡 Useful Tips</h3><p>रोजमर्रा के काम आने वाली उपयोगी बातें।</p></div>
 </div>
 </section>
+
 <section class="container" id="about">
-<h2>Mere Baare Mein</h2>
-<div class="card"><p>Meri Jankari ka maksad logon tak useful information pahunchana hai.</p></div>
+<h2>हमारे बारे में</h2>
+<div class="card">
+<p>Meri Jankari का उद्देश्य लोगों तक उपयोगी और रोचक जानकारी पहुँचाना है। हमारा प्रयास है कि हर व्यक्ति आसानी से नई चीजें सीख सके।</p>
+</div>
 </section>
+
 <section class="container" id="contact">
 <h2>Contact</h2>
-<div class="card"><p>Hamari website par aane ke liye dhanyavaad!</p></div>
+<div class="card">
+<p>हमारी वेबसाइट पर आने के लिए धन्यवाद!</p>
+<p>जल्द ही यहाँ संपर्क की जानकारी जोड़ी जाएगी।</p>
+</div>
 </section>
-<footer>© 2026 Meri Jankari</footer>
+
+<footer>
+<p>© 2026 Meri Jankari | All Rights Reserved</p>
+<p>ज्ञान बाँटें, आगे बढ़ें!</p>
+</footer>
+
 <script>
-document.getElementById("search").addEventListener("input",function(){
-let value=this.value.toLowerCase();
+function searchCards(){
+let value=document.getElementById("search").value.toLowerCase();
 document.querySelectorAll(".card").forEach(card=>{
 card.style.display=card.innerText.toLowerCase().includes(value)?"block":"none";
 });
-});
+}
 </script>
 </body>
 </html>
